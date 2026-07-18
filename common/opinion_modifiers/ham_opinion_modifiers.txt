@@ -2,7 +2,7 @@
 
 # New Emperor's gratitude toward the abdicator
 ham_grateful_for_mandate = {
-	opinion = 50
+	opinion = 100
 	years = 20
 }
 

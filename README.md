@@ -1,6 +1,6 @@
 # Hand Over the Mandate
 
-EU4 mod: the Emperor of China can voluntarily offer the Mandate of Heaven to a nation of their choosing — any culture, any religion. The chosen nation may accept or refuse.
+EU4 mod: in the golden age, Yao yielded the throne to Shun, and Shun to Yu — not to their sons, but to the most capable, and Heaven approved. This mod lets the Emperor of China follow the way of the sage-kings and voluntarily offer the Mandate of Heaven to a nation of their choosing — any culture, any religion. The chosen nation may accept or refuse. A Mandate freely given is never lost.
 
 Built for **EU4 1.37.x**, requires the **Mandate of Heaven** DLC. Disables ironman/achievements (as any mod does).
 
@@ -12,7 +12,7 @@ Built for **EU4 1.37.x**, requires the **Mandate of Heaven** DLC. Disables ironm
 - **Clean abdication** — the vanilla "Mandate of Heaven lost" modifier and −2 stability are compensated: the abdicating emperor keeps stability and gains +10 prestige.
 - **5-year cooldown** — after a completed handover the decision is locked for 5 years, so the Mandate cannot ping-pong.
 - **AI emperors participate** — an AI Emperor of China abdicates when the dynasty is collapsing (Mandate below 20), preferring the strongest candidate.
-- **Diplomatic fallout** — the new Emperor is grateful to the abdicator (+50, 20 yrs); passed-over candidates resent the new Emperor (−25, 10 yrs); refusing the offer slights the old Emperor (−10, 5 yrs).
+- **Diplomatic fallout** — the new Emperor is deeply grateful to the abdicator (+100, 20 yrs); passed-over candidates resent the new Emperor (−25, 10 yrs); refusing the offer slights the old Emperor (−10, 5 yrs).
 - **Tributaries may follow the Mandate** — after the handover the old Emperor chooses whether their tributaries transfer to the new Son of Heaven or stay.
 - **Opened Take Mandate CB** — the vanilla `cb_take_mandate` religion gate (pagan/eastern only) and AI culture gate (East Asian only) are removed. Any nation bordering the Emperor can declare a Take Mandate war.
 

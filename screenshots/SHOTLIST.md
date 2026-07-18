@@ -14,7 +14,7 @@ In-game capture: F11 (EU4 screenshot, saves to `Documents/Paradox Interactive/Eu
 ## Nice-to-have
 
 5. `05_tributaries.png` — **"The Mandate Has Passed"** event with the release-tributaries / keep-tributaries choice.
-6. `06_opinion.png` — Diplomacy screen opinion breakdown showing **"Grateful for the Mandate +50"** or **"Passed Over for the Mandate −25"**.
+6. `06_opinion.png` — Diplomacy screen opinion breakdown showing **"Received the Mandate Freely +100"** or **"Passed Over for the Mandate −25"**.
 7. `07_refusal.png` — **"The Offer Is Refused"** event (pick-another / give-up options).
 8. `08_take_mandate_cb.png` — Declare-war screen as a non-East-Asian, non-pagan/eastern neighbor (e.g. Russia bordering the Emperor) showing the **Take Mandate of Heaven** CB available — the opened-CB feature.
 
