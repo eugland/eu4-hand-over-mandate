@@ -21,7 +21,9 @@ The Son of Heaven may now abdicate with grace. As Emperor of China, offer the Ma
 [/list]
 
 [h2]Compatibility[/h2]
-Everything is additive except one file: the mod overrides the vanilla [i]cb_take_mandate[/i], so it conflicts only with mods that also change that casus belli. Works mid-save. Localised in English, French, German and Spanish (English text).
+Everything is additive except one file: the mod overrides the vanilla [i]cb_take_mandate[/i], so it conflicts only with mods that also change that casus belli. Works mid-save. Fully localised in English, French, German and Spanish.
+
+Translations for other languages welcome — open a pull request on GitHub.
 
 [h2]How it works[/h2]
 Decision "Hand Over the Mandate" (visible only as Emperor of China, at peace) → event lists the top 8 candidates → your chosen nation accepts or refuses → on acceptance the Mandate, and optionally your tributaries, pass to the new Son of Heaven.

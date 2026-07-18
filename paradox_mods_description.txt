@@ -25,7 +25,9 @@ REQUIREMENTS
 
 COMPATIBILITY
 
-Everything is additive except one file: the mod overrides the vanilla cb_take_mandate, so it conflicts only with mods that also change that casus belli. Works mid-save. Localised in English, French, German and Spanish (English text).
+Everything is additive except one file: the mod overrides the vanilla cb_take_mandate, so it conflicts only with mods that also change that casus belli. Works mid-save. Fully localised in English, French, German and Spanish.
+
+Translations for other languages welcome — open a pull request on GitHub.
 
 HOW IT WORKS
 
