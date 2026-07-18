@@ -1,0 +1,71 @@
+# Hand Over the Mandate - scripted effects
+
+# Flags the strongest remaining candidate (by total development, banded)
+# with ham_picked. Within a band the pick is random; bands keep the list
+# roughly sorted from strongest to weakest.
+ham_flag_best_candidate = {
+	if = {
+		limit = { any_country = { ham_pickable = yes total_development = 700 } }
+		random_country = {
+			limit = { ham_pickable = yes total_development = 700 }
+			set_country_flag = ham_picked
+		}
+	}
+	else_if = {
+		limit = { any_country = { ham_pickable = yes total_development = 400 } }
+		random_country = {
+			limit = { ham_pickable = yes total_development = 400 }
+			set_country_flag = ham_picked
+		}
+	}
+	else_if = {
+		limit = { any_country = { ham_pickable = yes total_development = 250 } }
+		random_country = {
+			limit = { ham_pickable = yes total_development = 250 }
+			set_country_flag = ham_picked
+		}
+	}
+	else_if = {
+		limit = { any_country = { ham_pickable = yes total_development = 150 } }
+		random_country = {
+			limit = { ham_pickable = yes total_development = 150 }
+			set_country_flag = ham_picked
+		}
+	}
+	else_if = {
+		limit = { any_country = { ham_pickable = yes total_development = 80 } }
+		random_country = {
+			limit = { ham_pickable = yes total_development = 80 }
+			set_country_flag = ham_picked
+		}
+	}
+	else_if = {
+		limit = { any_country = { ham_pickable = yes total_development = 40 } }
+		random_country = {
+			limit = { ham_pickable = yes total_development = 40 }
+			set_country_flag = ham_picked
+		}
+	}
+	else_if = {
+		limit = { any_country = { ham_pickable = yes } }
+		random_country = {
+			limit = { ham_pickable = yes }
+			set_country_flag = ham_picked
+		}
+	}
+}
+
+# Clears all list bookkeeping
+ham_cleanup = {
+	every_country = {
+		limit = {
+			OR = {
+				has_country_flag = ham_listed
+				has_country_flag = ham_picked
+			}
+		}
+		clr_country_flag = ham_listed
+		clr_country_flag = ham_picked
+	}
+	set_variable = { which = ham_count value = 0 }
+}

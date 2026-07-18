@@ -1,0 +1,22 @@
+# Hand Over the Mandate - decision for the Emperor of China
+
+country_decisions = {
+
+	hand_over_mandate_decision = {
+		major = yes
+		potential = {
+			has_dlc = "Mandate of Heaven"
+			is_emperor_of_china = yes
+		}
+		allow = {
+			is_at_war = no
+			any_country = { ham_can_receive_mandate = yes }
+		}
+		effect = {
+			country_event = { id = ham_events.1 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

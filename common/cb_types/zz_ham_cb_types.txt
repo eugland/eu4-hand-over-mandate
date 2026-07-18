@@ -1,0 +1,22 @@
+# Hand Over the Mandate - overrides vanilla cb_take_mandate.
+# Removes the religion (pagan/eastern) and AI culture (east_asian) requirements:
+# any nation bordering the Emperor of China can take the Mandate.
+
+cb_take_mandate = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		has_dlc = "Mandate of Heaven"
+		is_subject = no
+		NOT = { has_reform = shogunate }
+		is_revolutionary = no
+	}
+
+	prerequisites = {
+		is_neighbor_of = FROM
+		FROM = { is_emperor_of_china = yes }
+		NOT = { truce_with = FROM }
+	}
+
+	war_goal = take_capital_take_mandate
+}

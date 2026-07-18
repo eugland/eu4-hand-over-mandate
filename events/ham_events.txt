@@ -1,0 +1,220 @@
+namespace = ham_events
+
+# Abdication menu. ROOT = the Emperor of China.
+# The immediate block fills up to 8 candidate slots, strongest first.
+country_event = {
+	id = ham_events.1
+	title = ham_events.1.t
+	desc = ham_events.1.d
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			ham_cleanup = yes
+
+			ham_flag_best_candidate = yes
+			if = {
+				limit = { any_country = { has_country_flag = ham_picked } }
+				random_country = {
+					limit = { has_country_flag = ham_picked }
+					clr_country_flag = ham_picked
+					set_country_flag = ham_listed
+					save_event_target_as = ham_slot_1
+				}
+				change_variable = { which = ham_count value = 1 }
+			}
+
+			ham_flag_best_candidate = yes
+			if = {
+				limit = { any_country = { has_country_flag = ham_picked } }
+				random_country = {
+					limit = { has_country_flag = ham_picked }
+					clr_country_flag = ham_picked
+					set_country_flag = ham_listed
+					save_event_target_as = ham_slot_2
+				}
+				change_variable = { which = ham_count value = 1 }
+			}
+
+			ham_flag_best_candidate = yes
+			if = {
+				limit = { any_country = { has_country_flag = ham_picked } }
+				random_country = {
+					limit = { has_country_flag = ham_picked }
+					clr_country_flag = ham_picked
+					set_country_flag = ham_listed
+					save_event_target_as = ham_slot_3
+				}
+				change_variable = { which = ham_count value = 1 }
+			}
+
+			ham_flag_best_candidate = yes
+			if = {
+				limit = { any_country = { has_country_flag = ham_picked } }
+				random_country = {
+					limit = { has_country_flag = ham_picked }
+					clr_country_flag = ham_picked
+					set_country_flag = ham_listed
+					save_event_target_as = ham_slot_4
+				}
+				change_variable = { which = ham_count value = 1 }
+			}
+
+			ham_flag_best_candidate = yes
+			if = {
+				limit = { any_country = { has_country_flag = ham_picked } }
+				random_country = {
+					limit = { has_country_flag = ham_picked }
+					clr_country_flag = ham_picked
+					set_country_flag = ham_listed
+					save_event_target_as = ham_slot_5
+				}
+				change_variable = { which = ham_count value = 1 }
+			}
+
+			ham_flag_best_candidate = yes
+			if = {
+				limit = { any_country = { has_country_flag = ham_picked } }
+				random_country = {
+					limit = { has_country_flag = ham_picked }
+					clr_country_flag = ham_picked
+					set_country_flag = ham_listed
+					save_event_target_as = ham_slot_6
+				}
+				change_variable = { which = ham_count value = 1 }
+			}
+
+			ham_flag_best_candidate = yes
+			if = {
+				limit = { any_country = { has_country_flag = ham_picked } }
+				random_country = {
+					limit = { has_country_flag = ham_picked }
+					clr_country_flag = ham_picked
+					set_country_flag = ham_listed
+					save_event_target_as = ham_slot_7
+				}
+				change_variable = { which = ham_count value = 1 }
+			}
+
+			ham_flag_best_candidate = yes
+			if = {
+				limit = { any_country = { has_country_flag = ham_picked } }
+				random_country = {
+					limit = { has_country_flag = ham_picked }
+					clr_country_flag = ham_picked
+					set_country_flag = ham_listed
+					save_event_target_as = ham_slot_8
+				}
+				change_variable = { which = ham_count value = 1 }
+			}
+		}
+	}
+
+	option = {
+		name = ham_events.1.o1
+		trigger = { check_variable = { which = ham_count value = 1 } }
+		set_emperor_of_china = event_target:ham_slot_1
+		remove_country_modifier = lost_mandate_of_heaven
+		add_stability = 2
+		add_prestige = 10
+		event_target:ham_slot_1 = { country_event = { id = ham_events.2 } }
+		hidden_effect = { ham_cleanup = yes }
+	}
+
+	option = {
+		name = ham_events.1.o2
+		trigger = { check_variable = { which = ham_count value = 2 } }
+		set_emperor_of_china = event_target:ham_slot_2
+		remove_country_modifier = lost_mandate_of_heaven
+		add_stability = 2
+		add_prestige = 10
+		event_target:ham_slot_2 = { country_event = { id = ham_events.2 } }
+		hidden_effect = { ham_cleanup = yes }
+	}
+
+	option = {
+		name = ham_events.1.o3
+		trigger = { check_variable = { which = ham_count value = 3 } }
+		set_emperor_of_china = event_target:ham_slot_3
+		remove_country_modifier = lost_mandate_of_heaven
+		add_stability = 2
+		add_prestige = 10
+		event_target:ham_slot_3 = { country_event = { id = ham_events.2 } }
+		hidden_effect = { ham_cleanup = yes }
+	}
+
+	option = {
+		name = ham_events.1.o4
+		trigger = { check_variable = { which = ham_count value = 4 } }
+		set_emperor_of_china = event_target:ham_slot_4
+		remove_country_modifier = lost_mandate_of_heaven
+		add_stability = 2
+		add_prestige = 10
+		event_target:ham_slot_4 = { country_event = { id = ham_events.2 } }
+		hidden_effect = { ham_cleanup = yes }
+	}
+
+	option = {
+		name = ham_events.1.o5
+		trigger = { check_variable = { which = ham_count value = 5 } }
+		set_emperor_of_china = event_target:ham_slot_5
+		remove_country_modifier = lost_mandate_of_heaven
+		add_stability = 2
+		add_prestige = 10
+		event_target:ham_slot_5 = { country_event = { id = ham_events.2 } }
+		hidden_effect = { ham_cleanup = yes }
+	}
+
+	option = {
+		name = ham_events.1.o6
+		trigger = { check_variable = { which = ham_count value = 6 } }
+		set_emperor_of_china = event_target:ham_slot_6
+		remove_country_modifier = lost_mandate_of_heaven
+		add_stability = 2
+		add_prestige = 10
+		event_target:ham_slot_6 = { country_event = { id = ham_events.2 } }
+		hidden_effect = { ham_cleanup = yes }
+	}
+
+	option = {
+		name = ham_events.1.o7
+		trigger = { check_variable = { which = ham_count value = 7 } }
+		set_emperor_of_china = event_target:ham_slot_7
+		remove_country_modifier = lost_mandate_of_heaven
+		add_stability = 2
+		add_prestige = 10
+		event_target:ham_slot_7 = { country_event = { id = ham_events.2 } }
+		hidden_effect = { ham_cleanup = yes }
+	}
+
+	option = {
+		name = ham_events.1.o8
+		trigger = { check_variable = { which = ham_count value = 8 } }
+		set_emperor_of_china = event_target:ham_slot_8
+		remove_country_modifier = lost_mandate_of_heaven
+		add_stability = 2
+		add_prestige = 10
+		event_target:ham_slot_8 = { country_event = { id = ham_events.2 } }
+		hidden_effect = { ham_cleanup = yes }
+	}
+
+	option = {
+		name = ham_events.1.oc
+		hidden_effect = { ham_cleanup = yes }
+	}
+}
+
+# Notification to the new Emperor. ROOT = recipient, FROM = former Emperor.
+country_event = {
+	id = ham_events.2
+	title = ham_events.2.t
+	desc = ham_events.2.d
+	picture = IMPORTANT_STATUE_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = ham_events.2.a
+		add_prestige = 10
+	}
+}

@@ -1,0 +1,24 @@
+# Hand Over the Mandate - scripted triggers
+# ROOT = the current Emperor of China (decision taker / event owner)
+
+# Who may receive the Mandate: any culture, any religion.
+# Must border the Emperor or be a subject (tributary) of the Emperor,
+# be able to conduct independent diplomacy, and not be revolutionary or a shogunate.
+ham_can_receive_mandate = {
+	NOT = { tag = ROOT }
+	is_emperor_of_china = no
+	is_free_or_tributary_trigger = yes
+	is_revolutionary = no
+	NOT = { has_reform = shogunate }
+	OR = {
+		is_neighbor_of = ROOT
+		is_subject_of = ROOT
+	}
+}
+
+# Candidate not yet placed in the top-8 list
+ham_pickable = {
+	ham_can_receive_mandate = yes
+	NOT = { has_country_flag = ham_listed }
+	NOT = { has_country_flag = ham_picked }
+}
