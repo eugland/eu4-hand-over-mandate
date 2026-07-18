@@ -1,61 +1,28 @@
 # Hand Over the Mandate - scripted effects
+# Called from ham_events.1 immediate; ROOT = the Emperor of China.
 
-# Flags the strongest remaining candidate (by total development, banded)
-# with ham_picked. Within a band the pick is random; bands keep the list
-# roughly sorted from strongest to weakest.
+# Flags the strongest remaining candidate (exact, by total development)
+# with ham_picked. Ties go to the first country iterated.
 ham_flag_best_candidate = {
+	set_variable = { which = ham_best value = 0 }
+	every_country = {
+		limit = { ham_pickable = yes }
+		ROOT = {
+			export_to_variable = { which = ham_cur value = total_development who = PREV }
+			if = {
+				limit = { NOT = { check_variable = { which = ham_best which = ham_cur } } }
+				set_variable = { which = ham_best which = ham_cur }
+				PREV = { save_event_target_as = ham_round_best }
+			}
+		}
+	}
 	if = {
-		limit = { any_country = { ham_pickable = yes total_development = 700 } }
-		random_country = {
-			limit = { ham_pickable = yes total_development = 700 }
-			set_country_flag = ham_picked
-		}
-	}
-	else_if = {
-		limit = { any_country = { ham_pickable = yes total_development = 400 } }
-		random_country = {
-			limit = { ham_pickable = yes total_development = 400 }
-			set_country_flag = ham_picked
-		}
-	}
-	else_if = {
-		limit = { any_country = { ham_pickable = yes total_development = 250 } }
-		random_country = {
-			limit = { ham_pickable = yes total_development = 250 }
-			set_country_flag = ham_picked
-		}
-	}
-	else_if = {
-		limit = { any_country = { ham_pickable = yes total_development = 150 } }
-		random_country = {
-			limit = { ham_pickable = yes total_development = 150 }
-			set_country_flag = ham_picked
-		}
-	}
-	else_if = {
-		limit = { any_country = { ham_pickable = yes total_development = 80 } }
-		random_country = {
-			limit = { ham_pickable = yes total_development = 80 }
-			set_country_flag = ham_picked
-		}
-	}
-	else_if = {
-		limit = { any_country = { ham_pickable = yes total_development = 40 } }
-		random_country = {
-			limit = { ham_pickable = yes total_development = 40 }
-			set_country_flag = ham_picked
-		}
-	}
-	else_if = {
-		limit = { any_country = { ham_pickable = yes } }
-		random_country = {
-			limit = { ham_pickable = yes }
-			set_country_flag = ham_picked
-		}
+		limit = { check_variable = { which = ham_best value = 1 } }
+		event_target:ham_round_best = { set_country_flag = ham_picked }
 	}
 }
 
-# Clears all list bookkeeping
+# Clears the candidate-list bookkeeping
 ham_cleanup = {
 	every_country = {
 		limit = {
@@ -68,4 +35,13 @@ ham_cleanup = {
 		clr_country_flag = ham_picked
 	}
 	set_variable = { which = ham_count value = 0 }
+}
+
+# Clears refusal flags - call when the abdication attempt ends
+# (transfer completed or emperor gave up), NOT between refusal rounds.
+ham_clear_refusals = {
+	every_country = {
+		limit = { has_country_flag = ham_refused }
+		clr_country_flag = ham_refused
+	}
 }

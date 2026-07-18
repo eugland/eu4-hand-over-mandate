@@ -16,9 +16,10 @@ ham_can_receive_mandate = {
 	}
 }
 
-# Candidate not yet placed in the top-8 list
+# Candidate not yet placed in the top-8 list and not having refused this offer
 ham_pickable = {
 	ham_can_receive_mandate = yes
 	NOT = { has_country_flag = ham_listed }
 	NOT = { has_country_flag = ham_picked }
+	NOT = { has_country_flag = ham_refused }
 }

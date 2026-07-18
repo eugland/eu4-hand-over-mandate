@@ -1,0 +1,19 @@
+# Hand Over the Mandate - opinion modifiers
+
+# New Emperor's gratitude toward the abdicator
+ham_grateful_for_mandate = {
+	opinion = 50
+	years = 20
+}
+
+# Passed-over candidates resent the new Emperor
+ham_snubbed_candidate = {
+	opinion = -25
+	years = 10
+}
+
+# The old Emperor is slighted by a refusal
+ham_refused_mandate = {
+	opinion = -10
+	years = 5
+}

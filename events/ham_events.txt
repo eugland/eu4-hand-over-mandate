@@ -1,7 +1,9 @@
 namespace = ham_events
 
 # Abdication menu. ROOT = the Emperor of China.
-# The immediate block fills up to 8 candidate slots, strongest first.
+# The immediate block fills up to 8 candidate slots, strongest first
+# (exact order by total development). Options offer the Mandate; the
+# candidate may accept (ham_events.4) or refuse.
 country_event = {
 	id = ham_events.1
 	title = ham_events.1.t
@@ -114,107 +116,193 @@ country_event = {
 	option = {
 		name = ham_events.1.o1
 		trigger = { check_variable = { which = ham_count value = 1 } }
-		set_emperor_of_china = event_target:ham_slot_1
-		remove_country_modifier = lost_mandate_of_heaven
-		add_stability = 2
-		add_prestige = 10
-		event_target:ham_slot_1 = { country_event = { id = ham_events.2 } }
-		hidden_effect = { ham_cleanup = yes }
+		ai_chance = { factor = 100 }
+		event_target:ham_slot_1 = { country_event = { id = ham_events.4 } }
 	}
 
 	option = {
 		name = ham_events.1.o2
 		trigger = { check_variable = { which = ham_count value = 2 } }
-		set_emperor_of_china = event_target:ham_slot_2
-		remove_country_modifier = lost_mandate_of_heaven
-		add_stability = 2
-		add_prestige = 10
-		event_target:ham_slot_2 = { country_event = { id = ham_events.2 } }
-		hidden_effect = { ham_cleanup = yes }
+		ai_chance = { factor = 40 }
+		event_target:ham_slot_2 = { country_event = { id = ham_events.4 } }
 	}
 
 	option = {
 		name = ham_events.1.o3
 		trigger = { check_variable = { which = ham_count value = 3 } }
-		set_emperor_of_china = event_target:ham_slot_3
-		remove_country_modifier = lost_mandate_of_heaven
-		add_stability = 2
-		add_prestige = 10
-		event_target:ham_slot_3 = { country_event = { id = ham_events.2 } }
-		hidden_effect = { ham_cleanup = yes }
+		ai_chance = { factor = 15 }
+		event_target:ham_slot_3 = { country_event = { id = ham_events.4 } }
 	}
 
 	option = {
 		name = ham_events.1.o4
 		trigger = { check_variable = { which = ham_count value = 4 } }
-		set_emperor_of_china = event_target:ham_slot_4
-		remove_country_modifier = lost_mandate_of_heaven
-		add_stability = 2
-		add_prestige = 10
-		event_target:ham_slot_4 = { country_event = { id = ham_events.2 } }
-		hidden_effect = { ham_cleanup = yes }
+		ai_chance = { factor = 5 }
+		event_target:ham_slot_4 = { country_event = { id = ham_events.4 } }
 	}
 
 	option = {
 		name = ham_events.1.o5
 		trigger = { check_variable = { which = ham_count value = 5 } }
-		set_emperor_of_china = event_target:ham_slot_5
-		remove_country_modifier = lost_mandate_of_heaven
-		add_stability = 2
-		add_prestige = 10
-		event_target:ham_slot_5 = { country_event = { id = ham_events.2 } }
-		hidden_effect = { ham_cleanup = yes }
+		ai_chance = { factor = 2 }
+		event_target:ham_slot_5 = { country_event = { id = ham_events.4 } }
 	}
 
 	option = {
 		name = ham_events.1.o6
 		trigger = { check_variable = { which = ham_count value = 6 } }
-		set_emperor_of_china = event_target:ham_slot_6
-		remove_country_modifier = lost_mandate_of_heaven
-		add_stability = 2
-		add_prestige = 10
-		event_target:ham_slot_6 = { country_event = { id = ham_events.2 } }
-		hidden_effect = { ham_cleanup = yes }
+		ai_chance = { factor = 1 }
+		event_target:ham_slot_6 = { country_event = { id = ham_events.4 } }
 	}
 
 	option = {
 		name = ham_events.1.o7
 		trigger = { check_variable = { which = ham_count value = 7 } }
-		set_emperor_of_china = event_target:ham_slot_7
-		remove_country_modifier = lost_mandate_of_heaven
-		add_stability = 2
-		add_prestige = 10
-		event_target:ham_slot_7 = { country_event = { id = ham_events.2 } }
-		hidden_effect = { ham_cleanup = yes }
+		ai_chance = { factor = 1 }
+		event_target:ham_slot_7 = { country_event = { id = ham_events.4 } }
 	}
 
 	option = {
 		name = ham_events.1.o8
 		trigger = { check_variable = { which = ham_count value = 8 } }
-		set_emperor_of_china = event_target:ham_slot_8
-		remove_country_modifier = lost_mandate_of_heaven
-		add_stability = 2
-		add_prestige = 10
-		event_target:ham_slot_8 = { country_event = { id = ham_events.2 } }
-		hidden_effect = { ham_cleanup = yes }
+		ai_chance = { factor = 1 }
+		event_target:ham_slot_8 = { country_event = { id = ham_events.4 } }
 	}
 
 	option = {
 		name = ham_events.1.oc
-		hidden_effect = { ham_cleanup = yes }
+		ai_chance = { factor = 1 }
+		hidden_effect = {
+			ham_cleanup = yes
+			ham_clear_refusals = yes
+		}
 	}
 }
 
-# Notification to the new Emperor. ROOT = recipient, FROM = former Emperor.
+# The offer. ROOT = chosen candidate, FROM = the Emperor of China.
 country_event = {
-	id = ham_events.2
-	title = ham_events.2.t
-	desc = ham_events.2.d
+	id = ham_events.4
+	title = ham_events.4.t
+	desc = ham_events.4.d
 	picture = IMPORTANT_STATUE_eventPicture
 	is_triggered_only = yes
 
+	# Accept: the Mandate changes hands.
 	option = {
-		name = ham_events.2.a
+		name = ham_events.4.a
+		ai_chance = {
+			factor = 9
+			modifier = {
+				factor = 0
+				NOT = { has_opinion = { who = FROM value = -50 } }
+			}
+			modifier = {
+				factor = 0
+				war_with = FROM
+			}
+		}
+		set_emperor_of_china = ROOT
 		add_prestige = 10
+		FROM = {
+			remove_country_modifier = lost_mandate_of_heaven
+			add_stability = 2
+			add_prestige = 10
+			add_opinion = { who = ROOT modifier = ham_grateful_for_mandate }
+			clr_country_flag = ham_recently_abdicated
+			set_country_flag = ham_recently_abdicated
+			country_event = { id = ham_events.3 }
+		}
+		hidden_effect = {
+			# Passed-over candidates resent the new Emperor
+			every_country = {
+				limit = {
+					has_country_flag = ham_listed
+					NOT = { tag = ROOT }
+				}
+				ROOT = { add_opinion = { who = PREV modifier = ham_snubbed_candidate } }
+			}
+			FROM = {
+				ham_cleanup = yes
+				ham_clear_refusals = yes
+			}
+		}
+	}
+
+	# Refuse: the Emperor is notified and may offer to someone else.
+	option = {
+		name = ham_events.4.r
+		ai_chance = { factor = 1 }
+		set_country_flag = ham_refused
+		add_opinion = { who = FROM modifier = ham_refused_mandate }
+		FROM = { country_event = { id = ham_events.5 } }
+	}
+}
+
+# Abdication complete. ROOT = the former Emperor, FROM = the new Emperor.
+# If the former Emperor has tributaries, they may be released to the new
+# Son of Heaven.
+country_event = {
+	id = ham_events.3
+	title = ham_events.3.t
+	desc = ham_events.3.d
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = ham_events.3.o_release
+		trigger = { any_subject_country = { is_subject_of_type = tributary_state } }
+		ai_chance = { factor = 6 }
+		every_subject_country = {
+			limit = { is_subject_of_type = tributary_state }
+			grant_independence = yes
+			FROM = {
+				create_subject = {
+					subject_type = tributary_state
+					subject = PREV
+				}
+			}
+		}
+	}
+
+	option = {
+		name = ham_events.3.o_keep
+		trigger = { any_subject_country = { is_subject_of_type = tributary_state } }
+		ai_chance = { factor = 4 }
+	}
+
+	option = {
+		name = ham_events.3.o_done
+		trigger = { NOT = { any_subject_country = { is_subject_of_type = tributary_state } } }
+	}
+}
+
+# The offer was refused. ROOT = the Emperor of China, FROM = the refuser.
+country_event = {
+	id = ham_events.5
+	title = ham_events.5.t
+	desc = ham_events.5.d
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+
+	# Reopen the menu; the refuser is excluded from the new list.
+	option = {
+		name = ham_events.5.oa
+		trigger = {
+			any_country = {
+				ham_can_receive_mandate = yes
+				NOT = { has_country_flag = ham_refused }
+			}
+		}
+		ai_chance = { factor = 9 }
+		country_event = { id = ham_events.1 }
+	}
+
+	option = {
+		name = ham_events.5.ob
+		ai_chance = { factor = 1 }
+		hidden_effect = {
+			ham_cleanup = yes
+			ham_clear_refusals = yes
+		}
 	}
 }

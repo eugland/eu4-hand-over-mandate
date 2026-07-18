@@ -11,12 +11,22 @@ country_decisions = {
 		allow = {
 			is_at_war = no
 			any_country = { ham_can_receive_mandate = yes }
+			# 5-year cooldown after a completed handover
+			OR = {
+				NOT = { has_country_flag = ham_recently_abdicated }
+				had_country_flag = { flag = ham_recently_abdicated days = 1825 }
+			}
 		}
 		effect = {
 			country_event = { id = ham_events.1 }
 		}
+		# AI abdicates only when the dynasty is collapsing (Mandate below 20)
 		ai_will_do = {
-			factor = 0
+			factor = 1
+			modifier = {
+				factor = 0
+				imperial_mandate = 20
+			}
 		}
 	}
 }
