@@ -1,0 +1,31 @@
+[h1]Hand Over the Mandate[/h1]
+
+The Son of Heaven may now abdicate with grace. As Emperor of China, offer the Mandate of Heaven to a nation of your choosing — [b]any culture, any religion[/b] — instead of losing it in fire and rebellion.
+
+[h2]Features[/h2]
+[list]
+[*][b]Abdication decision[/b] — pick from the 8 strongest eligible nations (exact ranking by total development). Candidates: anyone bordering you or any of your tributaries.
+[*][b]They may refuse[/b] — the chosen nation receives the offer and can decline. Refusers are excluded when you pick again.
+[*][b]Clean handover[/b] — no "Mandate of Heaven lost" malus, no stability hit; the abdicating emperor even gains prestige.
+[*][b]5-year cooldown[/b] — the Mandate cannot ping-pong between friends.
+[*][b]AI emperors abdicate too[/b] — a collapsing AI dynasty (Mandate below 20) passes the torch to the strongest candidate.
+[*][b]Diplomatic fallout[/b] — the new Emperor is grateful (+50); passed-over candidates resent them (−25); refusing the offer slights the old Emperor.
+[*][b]Tributaries may follow the Mandate[/b] — choose whether your tributaries transfer to the new Son of Heaven.
+[*][b]Opened Take Mandate CB[/b] — religion and culture gates removed from the vanilla casus belli: any nation bordering the Emperor can go to war for the Mandate.
+[/list]
+
+[h2]Requirements[/h2]
+[list]
+[*]EU4 1.37.x
+[*]Mandate of Heaven DLC
+[/list]
+
+[h2]Compatibility[/h2]
+Everything is additive except one file: the mod overrides the vanilla [i]cb_take_mandate[/i], so it conflicts only with mods that also change that casus belli. Works mid-save. Localised in English, French, German and Spanish (English text).
+
+[h2]How it works[/h2]
+Decision "Hand Over the Mandate" (visible only as Emperor of China, at peace) → event lists the top 8 candidates → your chosen nation accepts or refuses → on acceptance the Mandate, and optionally your tributaries, pass to the new Son of Heaven.
+
+Ironman and achievements are disabled, as with any mod.
+
+Source and bug reports: https://github.com/eugland/eu4-hand-over-mandate
